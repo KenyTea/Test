@@ -12,5 +12,10 @@ namespace Test.Classes
         public string NameOrg { get; set; }
         public string Address { get; set; }
         public string Tel { get; set; }
+
+       
+
+      
+
     }
 }

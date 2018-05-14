@@ -10,13 +10,13 @@ namespace Test.Classes
 {
     public class Generation
     {
-      
-        public Random rand = new Random();
+
+        private Random rand = new Random();
         public List<Patient> listPat;
         Generator gen = new Generator();
 
         public Generation()
-        {          
+        {
             listPat = new List<Patient>();
         }
 
@@ -40,6 +40,21 @@ namespace Test.Classes
                 Console.WriteLine("---------------------------");
             }
 
+        }
+
+        public Patient SearchPatient(string name)
+        {
+            Patient p = null;
+            foreach (Patient pation in listPat)
+            {
+                if (pation.Name.Contains(name))
+                {
+                    p = pation;
+                    break;
+                }
+            }
+
+            return p;
         }
     }
 }

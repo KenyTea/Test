@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AttachmentRequests.cs" />
-    <Compile Include="Classes\Generation.cs" />
+    <Compile Include="Classes\GenerationPatien.cs" />
+    <Compile Include="Classes\GeterationMedSenter.cs" />
     <Compile Include="Classes\MedOrganization.cs" />
+    <Compile Include="Classes\ModuleSet.cs" />
     <Compile Include="Classes\Patient.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Program.cs" />

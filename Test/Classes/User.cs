@@ -12,6 +12,7 @@ namespace Test.Classes
         public string Login { get; set; }
         public string Password { get; set; }
         public int AccessRights { get; set; }
-      
+        public string MedOrganization { get; set; }
+
     }
 }
