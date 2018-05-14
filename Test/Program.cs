@@ -13,13 +13,20 @@ namespace Test
         static void Main(string[] args)
         {
             Generation gener = new Generation();
-            gener.GenetatePatient(22);
+            gener.GenetatePatient(10);
             gener.PrintPatient();
+            Console.WriteLine("---------------------------------------------------\n");
 
             Console.WriteLine("Enter Name ");
             string name = Console.ReadLine();
             Patient p = gener.SearchPatient(name);
             Console.WriteLine("Найденный пациент: {0} ({1})", p.Name, p.IIN);
+            Console.WriteLine("---------------------------------------------------\n");
+
+            GeterationMedSenter medc = new GeterationMedSenter();
+            medc.GenetateMed();
+            medc.PrintMed();
+
 
         }
     }

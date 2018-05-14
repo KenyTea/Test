@@ -16,7 +16,7 @@ namespace Test.Classes
 
         public GeterationMedSenter()
         {
-
+            listMed = new List<MedOrganization>();
         }
 
         public void GenetateMed()
@@ -39,6 +39,7 @@ namespace Test.Classes
                 Console.WriteLine("Name Med Organisation - " + item.NameOrg);
                 Console.WriteLine("Address - " + item.Address);
                 Console.WriteLine(" " + item.Tel);
+                Console.WriteLine("---------------------------------------");
             }
         }
 
