@@ -44,17 +44,14 @@ namespace Test.Classes
 
         public Patient SearchPatient(string name)
         {
-            Patient p = null;
             foreach (Patient pation in listPat)
             {
                 if (pation.Name.Contains(name))
                 {
-                    p = pation;
-                    break;
+                    return pation;
                 }
             }
-
-            return p;
+            return null;
         }
     }
 }
