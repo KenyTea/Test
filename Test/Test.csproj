@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GeneratorName">
+      <HintPath>\\dc\Студенты\ПКО\SEB-171.2\C#\Exception\GeneratorName.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AttachmentRequests.cs" />
+    <Compile Include="Classes\Generation.cs" />
+    <Compile Include="Classes\MedOrganization.cs" />
+    <Compile Include="Classes\Patient.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
