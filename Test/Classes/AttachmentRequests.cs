@@ -14,5 +14,6 @@ namespace Test.Classes
         public DateTime ВateOfProcessing { get; set; }
         public string status { get; set; }
         public string Patient { get; set; }
+        public string MedOrganis { get; set; }
     }
 }

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test.Classes;
 
 namespace Test.Interfaces
 {
     /*1.	Пациент (Фамилия, Имя, Отчество, ИИН)*/
     public class Patient
     {
+        public MedOrganization MedOrgan { get; set; }
         private string Name_;
         public string Name
         {

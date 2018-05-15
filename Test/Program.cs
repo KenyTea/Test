@@ -17,15 +17,20 @@ namespace Test
             gener.PrintPatient();
             Console.WriteLine("---------------------------------------------------\n");
 
+            GeterationMedSenter medc = new GeterationMedSenter();
+            medc.GenetateMed();
+            medc.PrintMed();
+
             Console.WriteLine("Enter Name ");
             string name = Console.ReadLine();
             Patient p = gener.SearchPatient(name);
             Console.WriteLine("Найденный пациент: {0} ({1})", p.Name, p.IIN);
             Console.WriteLine("---------------------------------------------------\n");
 
-            GeterationMedSenter medc = new GeterationMedSenter();
-            medc.GenetateMed();
-            medc.PrintMed();
+            ModuleSet Ms = new ModuleSet();
+            MedOrganization Mo = new MedOrganization();
+
+            //Ms.Zakreplenir(ref Mo[], ref  
 
 
         }

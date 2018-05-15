@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test.Interfaces;
 
 namespace Test.Classes
 {
@@ -15,6 +16,12 @@ namespace Test.Classes
 */
     public class ModuleSet
     {
+        public void Zakreplenir(ref MedOrganization organ, ref Patient patient)
+        {
+
+            organ.patients.Add(patient);
+            patient.MedOrgan = organ;
+        }
 
     }
 }
