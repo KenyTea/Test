@@ -20,10 +20,5 @@ namespace Test.Classes
         {
             patients = new List<Patient>();
         }
-
-       
-
-      
-
     }
 }
