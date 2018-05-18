@@ -46,10 +46,12 @@ namespace Test
             Console.ReadKey();
             Console.Clear();
 
-            //medc.listMed.Add(p);
+            m.patients.Add(p);
 
-            ModuleSet Ms = new ModuleSet();
-            Ms.Zakreplenir(ref medc, ref p); 
+            foreach (var item in collection)
+            {
+
+            }
 
 
         }
