@@ -38,9 +38,21 @@ namespace Test.Classes
             {
                 Console.WriteLine("Name Med Organisation - " + item.NameOrg);
                 Console.WriteLine("Address - " + item.Address);
-                Console.WriteLine(" " + item.Tel);
+                Console.WriteLine("Telephone " + item.Tel);
                 Console.WriteLine("---------------------------------------");
             }
+        }
+
+        public MedOrganization SearchMedOrg(string name)
+        {
+            foreach (MedOrganization item in listMed)
+            {
+                if (item.NameOrg.Contains(name))
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
     }

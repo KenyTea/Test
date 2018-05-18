@@ -8,14 +8,14 @@ using Test.Interfaces;
 
 namespace Test.Classes
 {
-    public class Generation
+    public class GenerationPatien
     {
 
         private Random rand = new Random();
         public List<Patient> listPat;
         Generator gen = new Generator();
 
-        public Generation()
+        public GenerationPatien()
         {
             listPat = new List<Patient>();
         }
