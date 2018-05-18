@@ -14,45 +14,30 @@ namespace Test
         {
             GenerationPatien gener = new GenerationPatien();
             gener.GenetatePatient(10);
-            gener.PrintPatient();
-            Console.WriteLine("---------------------------------------------------\n");
 
-            Console.WriteLine("Enter pation's name ");
-            string name = Console.ReadLine();
-            Patient p = gener.SearchPatient(name);
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("Найденный пациент: {0} ({1})", p.Name, p.IIN);
-            Console.WriteLine("---------------------------------------------------\n");
-
-            Console.ReadKey();
-            Console.Clear();
-                       
             GeterationMedSenter medc = new GeterationMedSenter();
             medc.GenetateMed();
-            medc.PrintMed();
 
-            Console.WriteLine("Enter Med organization Name for add patien ");
-            string MedName = Console.ReadLine();
-            MedOrganization m = medc.SearchMedOrg(MedName);
+            ModuleSet moduleSet = new ModuleSet();
+            string message = "";
 
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("Found medical institution: "+  m.NameOrg);
-            Console.WriteLine("Address: " + m.Address);
-            Console.WriteLine("Telephone " + m.Tel);
-            Console.WriteLine("---------------------------------------------------\n");
-
-            Console.ReadKey();
-            Console.Clear();
-
-            m.patients.Add(p);
-
-            foreach (var item in collection)
+            while (true)
             {
+                Console.WriteLine("--------------------Menu---------------------");
+                Console.WriteLine("For show all patients press 1");
+                Console.WriteLine("For show all Med organizations press 2");
+                Console.WriteLine("For attach the patient, press 3 ");
+                Console.WriteLine("For exit press 0");
+                int choice = Int32.Parse(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:  gener.SearchPatient(); break;
+                    case 2:  medc.SearchMedOrg(); break;
+                    case 3:  moduleSet.Zakreplenir(ref medc, ref gener, out message); break;
+                    case 0: return;
 
+                }
             }
-
 
         }
     }

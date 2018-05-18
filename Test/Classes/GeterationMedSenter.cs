@@ -6,13 +6,26 @@ using System.Threading.Tasks;
 
 namespace Test.Classes
 {
-    public enum Organisation { Policlinnika6, Policlinnika12, HAK, Sunkar, Rakhat, Policlinnika3, Policlinnika4 }
+    public enum Organisation { Policlinnika6 = 1, Policlinnika12, HAK, Sunkar, Rakhat, Policlinnika3, Policlinnika4 }
     public enum Addresss { Shevshenko22, Aptynsarina3, Matepfkrf11, AbilayHana43, KabanbayBatyra81, Abaya2, Doatyr310 }
 
     public class GeterationMedSenter
     {
         private Random rand = new Random();
         public List<MedOrganization> listMed;
+
+        public MedOrganization this[int id]
+        {
+            get
+            {
+                foreach (MedOrganization item in listMed)
+                {
+                    if (item.Id == id)
+                        return item;
+                }
+                return null;
+            }
+        }
 
         public GeterationMedSenter()
         {
@@ -21,10 +34,10 @@ namespace Test.Classes
 
         public void GenetateMed()
         {
-
-            for (int i = 0; i < 6; i++)
+            for (int i = 1; i < 7; i++)
             {
                 MedOrganization med = new MedOrganization();
+                med.Id = i;
                 med.NameOrg = ((Organisation)(rand.Next(0, 6))).ToString();
                 med.Address = ((Addresss)rand.Next(0, 6)).ToString();
                 med.Tel = (rand.Next(300000, 999999)).ToString();
@@ -36,24 +49,34 @@ namespace Test.Classes
         {
             foreach (MedOrganization item in listMed)
             {
-                Console.WriteLine("Name Med Organisation - " + item.NameOrg);
-                Console.WriteLine("Address - " + item.Address);
-                Console.WriteLine("Telephone " + item.Tel);
-                Console.WriteLine("---------------------------------------");
+                item.PrintInfo();
+                Console.WriteLine("----------------------------------");
             }
         }
 
-        public MedOrganization SearchMedOrg(string name)
+
+        public MedOrganization SearchMedOrg()
         {
+            Console.Clear();
+            PrintMed();
+            Console.WriteLine("Enter Med organization Name and telephone ");
+            string MedName = Console.ReadLine();
+            string tel = Console.ReadLine();
+
+            bool t = false;
             foreach (MedOrganization item in listMed)
             {
-                if (item.NameOrg.Contains(name))
+                if (item.NameOrg.Contains(MedName) && item.Tel.Contains(tel))
                 {
+                    item.PrintInfo();
                     return item;
+                    t = true;
+
+                    break;
                 }
             }
+            if (!t) Console.WriteLine("There is no such Med organization");
             return null;
         }
-
     }
 }

@@ -15,6 +15,19 @@ namespace Test.Classes
         public List<Patient> listPat;
         Generator gen = new Generator();
 
+        public Patient this[int iin]
+        {
+            get
+            {
+                foreach (Patient item in listPat)
+                {
+                    if (item.IIN == iin)
+                        return item;
+                }
+                return null;
+            }
+        }
+
         public GenerationPatien()
         {
             listPat = new List<Patient>();
@@ -35,19 +48,26 @@ namespace Test.Classes
         {
             foreach (Patient item in listPat)
             {
-                Console.WriteLine(item.Name);
-                Console.WriteLine(item.IIN);
-                Console.WriteLine("---------------------------");
+                item.PrintInfo();
+                Console.WriteLine("----------------------------------");
             }
 
         }
 
-        public Patient SearchPatient(string name)
+        public Patient SearchPatient()
         {
+            Console.Clear();
+            PrintPatient();
+            Console.WriteLine("Enter pation's name ");
+            string name = Console.ReadLine();
+            Console.WriteLine();
+
             foreach (Patient pation in listPat)
             {
                 if (pation.Name.Contains(name))
                 {
+                    Console.WriteLine("Найденный пациент:");
+                    pation.PrintInfo();
                     return pation;
                 }
             }

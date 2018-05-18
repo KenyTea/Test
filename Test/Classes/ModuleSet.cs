@@ -16,12 +16,55 @@ namespace Test.Classes
 */
     public class ModuleSet
     {
-        public void Zakreplenir(ref MedOrganization organ, ref Patient patient)
+        public bool Zakreplenir(ref GeterationMedSenter organ, ref GenerationPatien pat, out string message)
         {
+            Console.Clear();
 
-            organ.patients.Add(patient);
-            patient.MedOrgan = organ;
+            foreach (Patient item in pat.listPat)
+            {
+                item.PrintInfo();
+            }
+            Console.WriteLine("");
+            Patient selP = new Patient();
+            Console.WriteLine("Select Patient ");
+            int choiceP = Int32.Parse(Console.ReadLine());
+            selP = pat[choiceP];
+            Console.WriteLine("");
+
+
+            foreach (MedOrganization item2 in organ.listMed)
+            {
+                item2.PrintInfo();
+            }
+            Console.WriteLine("");
+            MedOrganization selM = new MedOrganization();
+            Console.WriteLine("Select Med organization ");
+            int choiceM = Int32.Parse(Console.ReadLine());
+            selM = organ[choiceM];
+            Console.WriteLine("");
+
+            Console.Clear();
+
+            var t = organ.listMed.FirstOrDefault(f => f.Id == choiceM);
+
+            foreach (var p in t.patients)
+            {
+                if (p.IIN == choiceP)
+                {
+                    message = "This patient is already attached!";
+                    return false;
+                }
+            }
+
+            t.patients.Add(selP);
+            pat.listPat.FirstOrDefault(f => f.IIN == choiceP)
+                .MedOrgan = selM;
+
+            message = "The patient is successfully attached!";
+            return true;
         }
 
     }
+
 }
+

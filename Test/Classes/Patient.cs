@@ -24,5 +24,14 @@ namespace Test.Interfaces
             }
         }
         public int IIN { get; set; }
+
+
+        public void PrintInfo()
+        {
+            Console.WriteLine("Name - " + Name);
+            Console.WriteLine("IIN - " + IIN);
+            Console.WriteLine();
+            
+        }
     }
 }
